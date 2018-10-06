@@ -1,6 +1,6 @@
 # Frontend-Nanodegree Feedreader
 
-Utilizing [Jasmine] (http://jasmine.github.io) Unit test for JavaScript the following application creates a "test-driven development". Each test is independent of one another.
+Utilizing [Jasmine](http://jasmine.github.io) Unit test for JavaScript the following application creates a "test-driven development". Each test is independent of one another.
 
 
 ## Completed test
