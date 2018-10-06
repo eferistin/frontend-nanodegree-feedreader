@@ -127,18 +127,18 @@ $(function() {
         beforeEach(function(done){
             loadFeed(0, function(){
                 firstCome = document.querySelector('.feed').innerHTML;// unsure if it should be .textContent or .innerHTML
-                done();//callback
+                loadFeed(1, function(){
+                    secondCome = document.querySelector('.feed').innerHTML;// unsure if it should be .textContent or .innerHTML
+                    done();//callback
+                
+            });
                 
             });
 
-            loadFeed(1, function(){
-                secondCome = document.querySelector('.feed').innerHTML;// unsure if it should be .textContent or .innerHTML
-                done();//callback
-                
-            });
+
         });
         it('See changes in content of feed loading ',function(){
-            expect(firstCome!=secondCome).toBe(true);
+            expect(firstCome===secondCome).not.toBe(true);
         });
     });
 
