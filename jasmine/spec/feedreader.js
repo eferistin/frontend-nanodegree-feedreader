@@ -102,7 +102,7 @@ $(function() {
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
         beforeEach(function(done){
-
+            //ajax call is sent to urls
             loadFeed(0, done);
         });
 
@@ -112,12 +112,34 @@ $(function() {
             //Array size can not be below 1.
         });
 
+    });
     /* TODO: Write a new test suite named "New Feed Selection" */
 
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+    describe('New Feed Selection', function(){
 
+        var firstCome;
+        var secondCome;
+        
+        beforeEach(function(done){
+            loadFeed(0, function(){
+                firstCome = document.querySelector('.feed').textContent;// unsure if it should be .textContent or .innerHTML
+                done();//callback
+                
+            });
+
+            loadFeed(1, function(){
+                secondCome = document.querySelector('.feed').textContent;// unsure if it should be .textContent or .innerHTML
+                done();//callback
+                
+            });
+        });
+        it('See changes in content of feed loading ',function(){
+            expect(firstCome!=secondCome).toBe(true);
+        });
     });
+
 }());
