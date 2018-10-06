@@ -126,13 +126,13 @@ $(function() {
         
         beforeEach(function(done){
             loadFeed(0, function(){
-                firstCome = document.querySelector('.feed').textContent;// unsure if it should be .textContent or .innerHTML
+                firstCome = document.querySelector('.feed').innerHTML;// unsure if it should be .textContent or .innerHTML
                 done();//callback
                 
             });
 
             loadFeed(1, function(){
-                secondCome = document.querySelector('.feed').textContent;// unsure if it should be .textContent or .innerHTML
+                secondCome = document.querySelector('.feed').innerHTML;// unsure if it should be .textContent or .innerHTML
                 done();//callback
                 
             });
