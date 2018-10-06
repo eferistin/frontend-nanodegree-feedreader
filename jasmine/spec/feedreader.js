@@ -62,7 +62,7 @@ $(function() {
          * the CSS to determine how we're performing the
          * hiding/showing of the menu element.
          */
-        var hiddingMe = document.querySelector('body');
+        var hiddingMe = document.querySelector('body'); // refeactor used in the following `it` clause
         it('Ensures the menu is hidden by default and have showing an hiding of menu element', function(){
 
             expect($(hiddingMe).hasClass('menu-hidden')).toBe(true);
@@ -92,6 +92,7 @@ $(function() {
           })
     });
 
+    describe('Initial Entries', function(){
     /* TODO: Write a new test suite named "Initial Entries" */
 
         /* TODO: Write a test that ensures when the loadFeed
@@ -100,6 +101,16 @@ $(function() {
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
+        beforeEach(function(done){
+
+            loadFeed(0, done);
+        });
+
+        it('Verify there is an `.entry` and it is complete', function(){
+            var myEntry= document.querySelectorAll('.feed .entry');//collects full array of elements that have both classes.
+            expect($(myEntry).length).not.toBe(0);
+            //Array size can not be below 1.
+        });
 
     /* TODO: Write a new test suite named "New Feed Selection" */
 
@@ -107,4 +118,6 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+
+    });
 }());
